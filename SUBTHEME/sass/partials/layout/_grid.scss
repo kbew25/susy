@@ -1,0 +1,47 @@
+// ----------------------------------------------
+//                Grid Settings
+//
+//  This uses Susy as the layout system.
+//  Full Susy docs can be found at:
+//  http://susydocs.oddbird.net/
+// ----------------------------------------------
+//**                Can Edit
+
+// Default
+$susy: (
+  columns: 4,
+  gutters: 10/65,
+  container: $container-size, // change in vars
+);
+
+// Above $bp-medium breakpoint
+$medium: (
+  columns: 12,
+  gutters: 10/52,
+  sidebarfirst: 3, // in columns if not using custom layouts
+  sidebarsecond: 4, // in columns if not using custom layouts
+);
+
+// Above $bp-large breakpoint
+$large: (
+  columns: 12,
+  gutters: 20/63,
+  sidebarfirst: 3, // in columns if not using custom layouts
+  sidebarsecond: 4, // in columns if not using custom layouts
+);
+
+#page {
+  @include container;
+  clear: both;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  @include susy-breakpoint($bp-large, $large) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @media screen and (min-width: $bp-xlarge) {
+    max-width: $bp-xlarge - 100;
+  }
+}

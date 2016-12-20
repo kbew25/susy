@@ -1,0 +1,219 @@
+// ----------------------------------------------
+//          Elements Default Styles
+// ----------------------------------------------
+//**     Shouldn't Edit - See utils/vars
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $base-font;
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+body, input, textarea {
+  @include font-smoothing();
+}
+
+.clearfix {
+  @extend %clearfix;
+}
+
+%invisible {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  word-wrap: normal;
+}
+
+/* -----  Headings  ----- */
+
+%headings {
+  @include headings;
+}
+
+h1, .h1 {
+  @extend %headings;
+  font-size: $font-size-h1;
+}
+
+h2, .h2 {
+  @extend %headings;
+  font-size: $font-size-h2;
+}
+
+h3, .h3 {
+  @extend %headings;
+  font-size: $font-size-h3;
+}
+
+h4, .h4 {
+  @extend %headings;
+  font-size: $font-size-h4;
+}
+
+h5, .h5 {
+  @extend %headings;
+  font-size: $font-size-h5;
+}
+
+h6, .h6 {
+  @extend %headings;
+  font-size: $font-size-h6;
+}
+
+/* -----  Links  ----- */
+
+a {
+  @include links();
+}
+
+/* -----  Images  ----- */
+
+img {
+  max-width: 100%;
+  height: auto !important;
+}
+
+/* -----  Lists  ----- */
+
+nav.breadcrumb {
+  li {
+    display: inline;
+  }
+}
+
+/* -----  Forms  ----- */
+
+%buttons {
+  @include buttons;
+}
+
+%warning {
+  @include button($brand-warning);
+}
+%danger {
+  @include button($brand-danger);
+}
+
+button {
+  @extend %buttons;
+}
+
+[class*='btn'] {
+  @extend %buttons;
+  &[class*='-primary'] {
+    @include button($brand-info);
+  }
+  &[class*='-success'] {
+    @include button($brand-success);
+  }
+  &[class*='-warning'] {
+    @extend %warning;
+  }
+  &[class*='-danger'] {
+    @extend %danger;
+  }
+}
+
+label,
+input,
+fieldset {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+}
+
+input + label {
+  display: inline-block;
+}
+
+.form-item {
+  @include label-inline;
+}
+
+.description {
+  color: $gray;
+  margin-bottom: 10px;
+  font-size: 80%;
+}
+
+input[type='submit'] {
+  @extend %buttons;
+  @include button($brand-success);
+}
+
+[id*='edit-cancel'] {
+  @extend %buttons;
+  @extend %danger;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+%text-input {
+  display: block;
+  width: 100%;
+  max-width: $text-input-width;
+  padding: $text-input-padding;
+  border: 1px solid $gray-lighter;
+  border-radius: $text-border-radius;
+  font-size: $font-size;
+}
+
+input[type=text] {
+  @extend %text-input;
+}
+
+input.form-tel {
+  @extend %text-input;
+}
+
+input[type='email'] {
+  @extend %text-input;
+}
+
+input[type='password'] {
+  @extend %text-input;
+}
+
+input[type='checkbox'], input[type='radio'] {
+  margin-right: 10px;
+}
+
+input[type="search"] {
+  box-sizing: border-box;
+  padding: $button-padding;
+  padding-right: em(5px);
+  padding-left: em(5px);
+  border: 1px solid $gray-lighter;
+  border-radius: $text-border-radius;
+  font-size: $font-size;
+}
+
+details {
+  summary {
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  > div {
+    padding: 10px;
+  }
+}
+
+details[open] {
+  > div {
+    border-top: 1px solid #f3f3f3;
+  }
+}
+
+/* -----  Tables  ----- */
+
+table {
+  width: 100%;
+}
